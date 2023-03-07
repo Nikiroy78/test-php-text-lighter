@@ -18,15 +18,11 @@ function detectLang ($text) {
 
 function selectEnIndex ($text) {
 	$enSymbols = array();
-	// $textArr = explode(" ", $text);
-	// $textArr = str_split($text, 1);
 	$text = iconv("UTF-8", "windows-1251", $text);
 	$textArr = str_split($text, 1);
 	$enDict = str_split('qwertyuiopasdfghjklzxcvbnm', 1);
-	// print_r($textArr);
 	
 	for ($i=0; $i <= count($textArr); $i++) {
-		// if (strpos('ййцукенгшщзхъфывапролджэячсмитьбюёё', mb_strtolower($text[$i])) === true) {
 		if (in_array(mb_strtolower($textArr[$i]), $enDict)) {
 			$enSymbols[] = $i;
 		}
@@ -57,7 +53,6 @@ function wrong_symbol ($text, $lang) {
 			if (
 				$cacheResult === "NO"
 			) {
-				// return selectRuIndex($text);
 				$enSymbols = selectEnIndex($text);
 				$text = iconv("UTF-8", "windows-1251", $text);
 				$textArr = str_split($text, 1);
