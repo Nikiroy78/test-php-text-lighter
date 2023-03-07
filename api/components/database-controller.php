@@ -8,7 +8,6 @@ function getRequestHistory () {
 	$results = $db->query('SELECT date, hash, text FROM history;');
 	$list = array();
 	while ($row = $results->fetchArray()) {
-		// var_dump($row);
 		$list[] = '['. $row['date'] .']: ('. $row['hash'] .'): '. $row['text'];
 	}
 	
