@@ -37,7 +37,7 @@
 			var textInputed = document.getElementById('textArea').innerHTML;
 			
 			function escapeRegExp(string) {
-				return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+				return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 			}
 			
 			function replaceAll(str, find, replace) {
@@ -56,7 +56,10 @@
 			}
 			
 			const formHandler = () => {
-				let request = new XMLHttpRequest(); 
+				let request = new XMLHttpRequest();
+				/*
+				Получаем из метода список индексов, которые мы "подсветим".
+				*/
 				request.open("GET", `/api/wrong_symbols.find.php?text=${textInputed}`, false);
 				request.send();
 				
